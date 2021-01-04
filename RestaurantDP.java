@@ -9,23 +9,26 @@ public class RestaurantDP {
 	static String[][] restaurantsChosen;
 
 	public static void main(String[] args){
-
+		
+		//n is numer of restaurants and k is minimum distance between chosen restaurants
 		int n = Integer.parseInt(args[0]);
 		int k = Integer.parseInt(args[1]);
-
+		
+		//Create list of restaurant expected profits and distances from starting point
 		int mileMarks[] = new int[n+1];
 		int expProfits[] = new int[n+1];
 		mileMarks[0] = 0;
 		expProfits[0] = 0;
 		for(int i = 0; i<n; i++) {
-        mileMarks[i+1] = Integer.parseInt(args[i+2]);
-				expProfits[i+1] = Integer.parseInt(args[i+n+2]);
-    }
+        		mileMarks[i+1] = Integer.parseInt(args[i+2]);
+			expProfits[i+1] = Integer.parseInt(args[i+n+2]);
+    		}
 
 		int maxDist = mileMarks[n];
 		int profitArray[][] = new int[n+1][maxDist+1];
 		String restaurantsChosen[][] = new String[n+1][maxDist+1];
-
+		
+		//Go through Dynamic Programming Formulation to find optimal solution
 		for(int i=0; i<n+1; i++){
 			for(int j=0; j< maxDist+1; j++){
 				if (i == 0){
@@ -55,7 +58,8 @@ public class RestaurantDP {
 				}
 			}
 		}
-		//Find group of those chosen
+		
+		//Find group of restaurants that were chosen
 		String restChosen = "";
 		int findI = n;
 		int findJ = maxDist;
