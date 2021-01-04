@@ -60,7 +60,7 @@ public class RestaurantDP {
 		int findI = n;
 		int findJ = maxDist;
 		while(true){
-			if(findI>0 && findJ>0){
+			if(findI>0 && findJ>=0){
 				if((restaurantsChosen[findI][findJ]).equals("Taken")){
 					restChosen = restChosen +  Integer.toString(findI) + " " ;
 					if(findJ >= k){
